@@ -21,11 +21,12 @@ const GameOverScreen = (props) => {
         <TitleText>The Game is Over!</TitleText>
         <View style={styles.imageContainer}>
           <Image
-            style={styles.image}
             source={require("../assets/success.png")}
             // source={{
-            //   uri: "https://s3.amazonaws.com/images.gearjunkie.com/uploads/2018/05/matterhorn-3x2.jpg",
+            //   uri:
+            //     'https://cdn.pixabay.com/photo/2016/05/05/23/52/mountain-summit-1375015_960_720.jpg'
             // }}
+            style={styles.image}
             resizeMode="cover"
           />
         </View>
@@ -33,9 +34,11 @@ const GameOverScreen = (props) => {
           <BodyText style={styles.resultText}>
             Your phone needed{" "}
             <Text style={styles.highlight}>{props.roundsNumber}</Text> rounds to
-            guess <Text style={styles.highlight}>{props.userNumber}</Text>
+            guess the number{" "}
+            <Text style={styles.highlight}>{props.userNumber}</Text>.
           </BodyText>
         </View>
+
         <MainButton onPress={props.onRestart}>NEW GAME</MainButton>
       </View>
     </ScrollView>
@@ -47,6 +50,7 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: "center",
     alignItems: "center",
+    paddingVertical: 10,
   },
   imageContainer: {
     width: Dimensions.get("window").width * 0.7,
